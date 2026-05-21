@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Детство без границ — учет питания</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="logo-circle">ДБГ</div>
+      <h1>Детство без границ</h1>
+      <p>Информационная система учета организации питания обучающихся</p>
+
+      <label>Логин</label>
+      <input id="loginInput" name="meal_login_field" type="text" placeholder="Введите логин" autocomplete="off" />
+
+      <label>Пароль</label>
+      <input id="passwordInput" name="meal_password_field" type="password" placeholder="Введите пароль" autocomplete="new-password" />
+
+      <button id="loginButton" class="primary-btn">Войти</button>
+      <div id="loginError" class="error-message"></div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">Д</div>
+        <div>
+          <strong>Питание</strong>
+          <span>МБОУ НОШ</span>
+        </div>
+      </div>
+
+      <button class="nav-btn active" data-page="dashboard">Главная</button>
+      <button class="nav-btn" data-page="students">Обучающиеся</button>
+      <button class="nav-btn" data-page="classes">Классы</button>
+      <button class="nav-btn" data-page="categories">Категории питания</button>
+      <button class="nav-btn" data-page="benefits">Льготы</button>
+      <button class="nav-btn" data-page="menu">Меню</button>
+      <button class="nav-btn" data-page="requests">Заявки</button>
+      <button class="nav-btn" data-page="reports">Отчеты</button>
+      <button class="nav-btn" data-page="about">О системе</button>
+
+      <div class="sidebar-footer">HTML · CSS · JS · Python · SQLite</div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <h2 id="pageTitle">Главная</h2>
+          <p id="pageSubtitle">Краткая информация по организации питания</p>
+        </div>
+        <button id="logoutButton" class="secondary-btn">Выйти</button>
+      </header>
+
+      <section id="dashboardPage" class="page"></section>
+
+      <section id="tablePage" class="page hidden">
+        <div id="sectionInfo" class="section-info"></div>
+
+        <div class="toolbar">
+          <input id="searchInput" type="text" placeholder="Поиск по таблице..." />
+          <select id="filterSelect" class="filter hidden"></select>
+          <button id="newButton" class="secondary-btn">Новая запись</button>
+        </div>
+
+        <div class="work-area">
+          <div class="table-card">
+            <table>
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+
+          <form id="editForm" class="edit-card">
+            <h3 id="formTitle">Добавление записи</h3>
+            <div id="formFields"></div>
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Сохранить</button>
+              <button type="button" id="clearButton" class="secondary-btn">Очистить</button>
+              <button type="button" id="deleteButton" class="danger-btn">Удалить</button>
+            </div>
+            <p id="formHint" class="hint">Выберите строку в таблице для изменения или удаления.</p>
+            <div id="studentCardBox" class="student-card-box hidden"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
